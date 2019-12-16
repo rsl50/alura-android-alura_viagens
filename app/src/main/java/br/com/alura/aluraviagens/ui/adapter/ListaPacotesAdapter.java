@@ -57,7 +57,14 @@ public class ListaPacotesAdapter extends BaseAdapter {
         imagem.setImageDrawable(drawableImagemPacote);
 
         TextView dias = viewCriada.findViewById(R.id.item_pacote_dias);
-        dias.setText(pacote.getDias()+ " dias");
+        String diasEmTexto = "";
+        int quantidadeDeDias = pacote.getDias();
+        if (quantidadeDeDias > 1) {
+            diasEmTexto = quantidadeDeDias + " dias";
+        } else {
+            diasEmTexto = quantidadeDeDias + " dia";
+        }
+        dias.setText(diasEmTexto);
 
         TextView preco = viewCriada.findViewById(R.id.item_pacote_preco);
         preco.setText(pacote.getPreco().toString());
