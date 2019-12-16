@@ -2,14 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/item_pacote_imagem"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/sao_paulo_sp"
+        tools:src="@sample/pacotes.json/pacotes/imagem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
         android:layout_margin="8dp"
         android:padding="8dp"
         android:background="@android:drawable/screen_background_dark_transparent"
-        android:text="São Paulo"
+        tools:text="@sample/pacotes.json/pacotes/local"
         android:textColor="@android:color/white"
         android:textSize="12sp"
         android:textStyle="bold" />
@@ -52,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         android:layout_margin="8dp"
-        android:text="2 dias"
+        tools:text="@sample/pacotes.json/pacotes/dias"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -62,7 +63,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/item_pacote_dias"
         app:layout_constraintStart_toStartOf="@id/item_pacote_dias"
-        android:text="R$ 243,99"
+        tools:text="@sample/pacotes.json/pacotes/preco"
         android:textSize="20sp"
         android:textColor="@android:color/holo_green_dark"  />
 
