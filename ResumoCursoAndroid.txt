@@ -1,0 +1,174 @@
+Android Studio/intelliJ
+
+Ctrl + Shift + F12 - Aumenta janela do código.
+Alt + Insert - Abre menu para criar novo arquivo.
+Ctrl + N - Abre aba de busca, permite buscar classes facilmente.
+Shift + F10 - Executa o aplicativo.
+Ctrl + Alt + O - Otimiza o código-fonte removendo imports e linhas desnecessárias.
+Shift + F6 - Permite renomear uma classe alterando o nome do arquivo.
+Ctrl + B - Abre o arquivo de layout de R.id selecionado.
+Shift, Shift - Abre busca no projeto todo
+Ctrl + Alt + M - Permite a extração automática de código para gerar métodos a partir de trechos de código.
+Alt + Shift + SetaCima/SetaBaixo - Move a linha de código
+Ctrl + Alt + F - Cria atributos da classe.
+Ctrl + Alt + C - Converte string de texto em parâmetro constante. Ex. "Novo aluno" -> TITULO_APPBAR
+Ctrl + Alt + L - Corrige a identação do código-fonte/XML.
+Ctrl + F9 - Faz o Build do projeto e sincroniza arquivos.
+Ctrl + Y - Apaga linha do código.
+Ctrl + Shift + A - Find Action shortcut
+fori - Atalho para gerar for indexido "for (int i = 0; i < ; i++)"
+F6 - Mover arquvivos para pasta/pacote
+
+Extrair variável: Ctrl + Alt + V no mac CMD + Alt + V;
+Extrair constante: Ctrl + Alt + C no mac CMD + Alt + C;
+Extrair método: Ctrl + Alt + M no mac CMD + Alt + M.
+
+Layout e ViewGroups
+Sobre a construção de layout no Android, como vimos, a base de criação é por meio de Views. Toda vez que tivermos que colocar algum componente novo, colocaremos uma View nova. Com base no que temos no layout, um elemento raiz dentro do arquivo de layout, que pode ser apenas um único elemento raiz e foi justamente por isso que só tivemos o Linear Layout. Isso significa que quando tivermos o arquivo de layout, em níveis de hierarquia, não teremos capacidade de colocar dois Text Views, por exemplo.
+
+Essa é uma regra muito importante quando considerarmos a implementação de layouts: existe apenas um único elemento raiz. Além disso, existem tipos de Views diferentes, pois quando consideramos apenas o tipo de View qualquer, que é o genérico, não conseguimos adicionar mais Views nela. Isso é, um Text View não tem a capacidade de incluir outro dentro dele, para isso temos outras Views, específicas para receber Views filhas, conhecidos também como View Groups.
+
+Então, quando queremos fazer um layout com mais de uma View, precisaremos desse tipo de View Group, que seria no caso o Linear Layout, e também o List View, que recebe várias Views. É por isso que colocamos o Linear Layout no começo, que é o que o Android acaba nos sugerindo, e conseguimos incluir mais de um Text View, uma List View, e assim por diante.
+
+Assim, o View Group será uma View cuja responsabilidade é simplesmente ser um contêiner para manter outras Views, então se pegarmos, por exemplo, a criação de um layout mais complexo, teremos o nosso layout, que será, a princípio, uma View Group, e aí vamos ter as Views dentro dela.
+
+Então, por exemplo, a View aqui embaixo poderia ser o nosso Text View, ou List View, ou podemos fazer a adição de outras Views. Inclusive temos a capacidade de, dentro de um View Group, que seria um Linear Layout, colocar outros View Groups, como vimos com a nossa List View.
+
+E dentro desse View Group fomos colocando outras Views, e é dessa maneira que vamos aumentando o que chamamos de níveis de hierarquia do nosso projeto. Se formos montar um layout, começaremos pela View raiz, que geralmente é uma View Group, para que se possa colocar outras Views, e dentro dela podemos ter outras View Groups ou Views.
+
+
+Densidade e Layout
+O Android framework nos disponibiliza algumas medidas para definir tamanhos fixos de seus elementos, como é o caso de pixel (px) e o pixel independente da densidade (dp). Além dessas opções também temos outras.
+
+Dentre as demais medidas, uma que é importante ter conhecimento é a pixel independente da escala (sp) que tem um comportamento similar ao dp, porém, é destinada ao conteúdo via texto, como é o caso do tamanho de texto de um TextView.
+
+No geral, utilizamos o dp e o sp, portanto, você não precisa se preocupar tanto com as demais unidades.
+
+Image Asset
+Permite adicionar imagens ao projeto de forma estática. O próprio Android já fornece uma biblioteca de ícones diversos.
+
+
+public class MainActivity extends AppCompatActivity
+O uso de AppCompatActivity adiciona a AppBar e permite manter suporte com versões anteriores do Android.
+
+
+Activity
+Ao criar uma nova activity, marcar a caixa Launcher Activity para adicionar os atributos que para que ela seja exibida.
+
+
+xmlns:tools="http://schemas.android.com/tools"
+O que for colocado no xml como :tools estará presente apenas no preview do Anrdoid Studio
+
+
+Variáveis locais declaradas fora do escopo da classe anônima, precisam ser final.
+
+
+CURSO 2 - Avançando com Listeners, menu e UI
+
+setOnClickListener é um Listener específico para Listas
+
+Log.i("TAG_NOME_LOG", "MSG A EXIBIR"); - Permite o uso do LogCat para mensagens de log. Tanto a chave/tag como o valor do log precisam ser Strings, portanto, valores primitivos precisam ser concatenados ou convertidos.
+
+Intent nome_intent.putExtra - Permite enviar argumentos/objetos Serializados de uma activity para outra.
+intent.getSerializableExtra - Permite capturar os dados enviados para a Intent.
+
+Aprendemos que para transferir nossos objetos via putExtra, precisamos configurá-los para que sejam serializáveis. Como solução, utilizamos a interface Serializable, porém, no Android, em algumas situações essa solução tende a ser mais custosa, ou seja, existe uma outra abordagem mais otimizada utilizando o Parcelable.
+
+Considerando apenas a documentação, veja que a implementação possui algumas peculiaridades. Caso tenha interesse e queira informações de uma maneira mais prática, dê uma olhada neste artigo (https://medium.com/@lucas_marciano/por-que-usar-o-parcelable-ao-inv%C3%A9s-do-serializable-5f7543a9c7f3).
+
+É importante usar o método hasExtra para verificar se os Extras não estão nulos evitando assim um nullPointerException.
+
+Atualização da Lista de Alunos
+Para manter a atualização de alunos na ListaAlunosActivity funcionando, utilize o adapter, fazendo a limpeza dos seus dados e buscando os novos dados contidos no ListView. Lembre-se que o adapter não precisa da lista no construtor para que funcione, ela pode ser adicionada depois.
+
+MENU DE CONEXTO
+Adicionar o método onCreateContextMenu com menu.add("Remover"), cria a opção remover no menu de contexto.
+Adicionar em configuraLista o método registerForContextMenu(lista), adiciona o menu contexto na lista.
+É necessário remover o configuraListenerDeCliqueLongoPorItem pois ele entra em conflito como menu de contexto impedindo seu funcionamento correto.
+
+É possível criar menus via XML de forma estática também. Crie o diretório menu em Res com Alt + Insert (Android Resource Directory) e selecionando Menu.
+Na tela de design, arraste o MenuItem para adicionar.
+O menuItem deve ter um título obrigatóriamente.
+
+getMenuInflate.inflate(R.menu.id_do_menu, menu) - Permite inflar o menu através da activity em tempo de execução.
+
+É necessário filtrar o item clicado em onContextItemSelected para identificar qual item foi selecionado. Isso é feito a partir do ID do item getItemId.
+
+onItemLongClickListener - Listener para ação ao realizar o click longo em um item da lista.
+
+AULA 05 - Melhorando experiência do formulário
+ScrollView só permite possuir uma View filha, senão o app quebra. Sendo assim, ela deve ser a View raiz.
+
+AULA 05 - MELHORANDO A EXPERIÊNCIA DO USUÁRIO 07.11.19
+ATIVIDADE 03 - Utilizando o menu de opções
+
+Criar um novo menu em Res/menu como activity_formulario_aluno_menu.xml
+app:ShowAsAction = Atributo para mostrar opção no menu de ... "Always" sempre exibe o valor no lugar do "menu de opções três pontos"
+
+Adicionar na activity formulário a chamada para onCreateOptionsMenu()
+
+onOptionsItemSelected - Captura ações que acontecem no "menu de opções três pontos"
+
+Ao rotacionar a tela, a Activity é destruída e criada novamente. Por isso se deve tomar cuidado com valores estáticos que precisam ser exibidos.
+
+
+ANDROID PARTE 03
+AULA 01 - 01..13
+Criação de layouts personalizados para ListView; 
+Migração de ArrayAdapter para adapter personalizado; 
+Implementação de Adapter personalizado por meio do BaseAdapter
+
+O BaseAdapter, é um adapter genérico que permite implementar comportamentos/métodos próprios para a View, facilitando assim a customização de Views e uso do inflate para estas views customizadas.
+
+A camada Application engloba a Activity e outras entidades do Android e mantém o estado global de aplicação, sendo a entidade mais estável do App. A Application não é destruída ao rotacionar a tela.
+
+Na Application não devem ser realizados processos demorados.
+
+ANDROID PARTE 3
+AULA 03
+Nesta aula, aprendemos a: Necessidade de caixa de diálogo para confirmação; Implementação de dialog com AlertDialog.
+
+O Builder recebe o contexto, por isso está como this.
+
+new AlertDialog.Builder(this)
+                .setTitle("Removendo Aluno")
+                .setMessage("Tem certeza que deseja remover o aluno?")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                        Aluno aluno = adapter.getItem(menuInfo.position);
+                        remove(aluno);
+                    }
+                })
+                .setNegativeButton("Não", null)
+                .show();
+
+AULA 04
+Inspetor de Código
+Ctrl + Shift + A - Abre caixa de busca de ações, digitar "inspec" permite ver a opção do inspetor de código.
+Inspecionar o código para que o Lint mostre os erros/warnings do projeto.
+
+É possível solucionar os problemas ou suprimir eles conforme a sua escolha.
+O parâmento android:autofillHints do EditText permite indicar o campo para preenchimento automático. Ex. "nome", o framework verifica se existe algum campo que atenda essa chave (valores possíveis para nome) e preenche ou sugere as opções disponíveis.
+
+==================================================
+
+CURSO LAYOUTS ANDROID PARTE 1: CRIANDO TELAS COM CONSTRAINT LAYOUTS
+AULA 04.01 - SIMULANDO O LAYOUT COM O TOOLS
+Poderemos utilizar um namespace dedicado do Android conhecido por tools o qual, se acrescentarmos em ListView, teremos como um atributo dessas nossas Views.
+
+Basicamente, o tools é uma ferramenta do Android para a utilização de atributos nas Views, a serem renderizados em tempo real no momento em que criamos o layout, então eles não impactarão diretamente no código ou na execução.
+
+Assim, tudo que colocarmos ali ficará apenas no "Preview", e isto nos ajuda por trazer recursos adicionais que não tínhamos antes, como o listitem, listfooter e listheader. Desta forma, conseguimos simular em tempo de compilação o layout criado, sem a necessidade de incluirmos um Adapter para depois rodarmos a aplicação e só então verificarmos nossa implementação.
+
+Em ListView, então, acrescentaremos antes dos Constraints:
+
+tools:listitem="@layout/item_pacote"
+Aparentemente nada foi alterado, já que não colocamos nenhum id, por estarmos dentro do ConstraintLayout e estarmos utilizando o ListView, de forma que ele não é renderizado. Incluiremos um id acrescentando:
+
+android:id="@+id/lista_pacotes_listview"
+Com este tipo de abordagem, o layout é colocado com valores fixos, mantendo-se exatamente o mesmo layout, o que não é um bom comportamento, como vimos ao implementarmos item_pacote, em que a princípio não havia imagens.
+
+AULA 06.07
+Classes utilitárias são classes com métodos públicos estáticos que permitem seu uso através do app facilitando a reutilização.
