@@ -1,6 +1,7 @@
 package br.com.alura.aluraviagens.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import br.com.alura.aluraviagens.R;
 
 import android.os.Bundle;
 
