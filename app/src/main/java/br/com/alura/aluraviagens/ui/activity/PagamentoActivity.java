@@ -1,14 +1,14 @@
 package br.com.alura.aluraviagens.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import br.com.alura.aluraviagens.R;
-import br.com.alura.aluraviagens.model.Pacote;
-import br.com.alura.aluraviagens.util.MoedaUtil;
-
 import android.os.Bundle;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+
+import androidx.appcompat.app.AppCompatActivity;
+import br.com.alura.aluraviagens.R;
+import br.com.alura.aluraviagens.model.Pacote;
+import br.com.alura.aluraviagens.util.MoedaUtil;
 
 public class PagamentoActivity extends AppCompatActivity {
 
