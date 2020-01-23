@@ -1,5 +1,6 @@
 package br.com.alura.aluraviagens.ui.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -37,6 +38,9 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         mostraDias(pacoteSaoPaulo);
         mostraData(pacoteSaoPaulo);
         mostraPreco(pacoteSaoPaulo);
+
+        Intent intent = new Intent(this, PagamentoActivity.class);
+        startActivity(intent);
     }
 
     private void mostraPreco(Pacote pacote) {
