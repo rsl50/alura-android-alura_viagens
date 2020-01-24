@@ -5,7 +5,7 @@ import br.com.alura.aluraviagens.R;
 
 import android.os.Bundle;
 
-public class ResumoCompra extends AppCompatActivity {
+public class ResumoCompraActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

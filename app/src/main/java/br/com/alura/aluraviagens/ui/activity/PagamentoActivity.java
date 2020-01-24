@@ -26,7 +26,7 @@ public class PagamentoActivity extends AppCompatActivity {
 
         mostraPreco(pacoteSaoPaulo);
 
-        Intent intent = new Intent(this, ResumoCompra.class);
+        Intent intent = new Intent(this, ResumoCompraActivity.class);
         startActivity(intent);
     }
 
