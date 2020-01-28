@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.io.Serializable;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +13,8 @@ import br.com.alura.aluraviagens.R;
 import br.com.alura.aluraviagens.dao.PacoteDAO;
 import br.com.alura.aluraviagens.model.Pacote;
 import br.com.alura.aluraviagens.ui.adapter.ListaPacotesAdapter;
+
+import static br.com.alura.aluraviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
 
 public class ListaPacotesActivity extends AppCompatActivity {
 
@@ -37,11 +38,14 @@ public class ListaPacotesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Pacote pacoteClicado = pacotes.get(position);
-
-                Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
-                intent.putExtra("pacote", pacoteClicado);
-                startActivity(intent);
+                vaiParaResumoPacote(pacoteClicado);
             }
         });
+    }
+
+    private void vaiParaResumoPacote(Pacote pacoteClicado) {
+        Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacoteClicado);
+        startActivity(intent);
     }
 }
