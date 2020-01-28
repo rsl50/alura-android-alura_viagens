@@ -16,12 +16,14 @@ import br.com.alura.aluraviagens.util.ResourceUtil;
 
 public class ResumoCompraActivity extends AppCompatActivity {
 
+    public static final String TITULO_APPBAR = "Resumo da compra";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_compra);
 
-        setTitle("Resumo da compra");
+        setTitle(TITULO_APPBAR);
 
         Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2, new BigDecimal("243.99"));
 
