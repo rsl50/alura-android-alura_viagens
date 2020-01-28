@@ -1,6 +1,6 @@
 Curso de Layouts Android parte 1: Criando telas com Constraint Layouts
 ---------
-<img src="https://www.alura.com.br/assets/api/cursos/layout-android-1.svg" data-canonical-src="https://www.alura.com.br/assets/api/cursos/layout-android-1.svg" width="250" height="250" />
+<img src="https://www.alura.com.br/assets/api/cursos/layout-android-1.svg" data-canonical-src="https://www.alura.com.br/assets/api/cursos/layout-android-1.svg" width="150" height="150" />
 
 https://cursos.alura.com.br/course/layout-android-1
 
@@ -16,7 +16,7 @@ https://cursos.alura.com.br/course/layout-android-1
 
 Curso de Layouts Android parte 2: Boas práticas para criação de telas
 ---------
-<img src="https://www.alura.com.br/assets/api/cursos/layout-android-2.svg" data-canonical-src="https://www.alura.com.br/assets/api/cursos/layout-android-2.svg" width="250" height="250" />
+<img src="https://www.alura.com.br/assets/api/cursos/layout-android-2.svg" data-canonical-src="https://www.alura.com.br/assets/api/cursos/layout-android-2.svg" width="150" height="150" />
 
 https://cursos.alura.com.br/course/layout-android-2
 
