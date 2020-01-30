@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import br.com.alura.aluraviagens.R;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -18,6 +19,23 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPBAR);
 
+        SharedPreferences preferences = getSharedPreferences("user_preferences", MODE_PRIVATE);
+        
+        if (preferences.contains("ja_abriu_app")) {
+            mostraListaPacotes();
+        } else {
+            adicionarPreferenceJaAbriu(preferences);
+            mostraSplashScreen();
+        }
+    }
+
+    private void adicionarPreferenceJaAbriu(SharedPreferences preferences) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("ja_abriu_app", true);
+        editor.commit();
+    }
+
+    private void mostraSplashScreen() {
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override
@@ -25,7 +43,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 mostraListaPacotes();
             }
         }, 2000);
-
     }
 
     private void mostraListaPacotes() {
