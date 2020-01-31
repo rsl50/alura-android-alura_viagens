@@ -20,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         setTitle(TITULO_APPBAR);
 
         SharedPreferences preferences = getSharedPreferences("user_preferences", MODE_PRIVATE);
-        
+
         if (preferences.contains("ja_abriu_app")) {
             mostraListaPacotes();
         } else {
